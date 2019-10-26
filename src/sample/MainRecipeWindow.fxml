@@ -1,0 +1,165 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ListView?>
+
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.ToggleButton?>
+<BorderPane fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml" fx:id = "MainBorderPane">
+
+    <top>
+        <VBox>
+        <MenuBar>
+            <Menu text = "File..">
+                <items>
+                    <MenuItem text = "New Recipe..." onAction="#AddNewRecipeDialog"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text = "Done"/>
+                </items>
+            </Menu>
+        </MenuBar>
+        <Label text = "Welcome to Recipe Search" textFill="black" prefWidth="1100" alignment="CENTER">
+            <font>
+                <Font name = "Time New Roman Bold" size = "36"/>
+            </font>
+        </Label>
+        </VBox>
+    </top>
+
+
+
+
+    <right>
+        <VBox BorderPane.alignment="CENTER" prefWidth="200" spacing = "15">
+            <Label text = "Search for a recipe" fx:id = "searchTitle"/>
+            <TextField text = "Search..." fx:id = "ourText" onKeyPressed="#searching"/>
+            <Button text = "Search for Recipe" onAction="#changeAnswer"/>
+
+            <Label>
+                <graphic>
+                    <ImageView BorderPane.alignment="CENTER" fitHeight="150" fitWidth="170" fx:id = "centerImage">
+                        <image>
+                            <Image url = "/images/foodimage.jpg"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Label>
+        </VBox>
+    </right>
+
+
+
+    <left>
+        <VBox spacing = "15" prefWidth="200" BorderPane.alignment="CENTER">
+
+            <padding>
+                <Insets left="50"/>
+            </padding>
+            <Label text = "Current Recipe" alignment="TOP_CENTER" textFill="darkolivegreen">
+                <font>
+                    <Font name = "Times New Roman Bold" size = "22"/>
+                </font>
+            </Label>
+        </VBox>
+        <ListView fx:id = "leftListView" onMouseClicked="#handleLeftListClick" onKeyPressed="#handleKeyPressed">
+            <!--<Label fx:id = "answer" text ="" alignment="CENTER" wrapText="true">-->
+                <!--<font>-->
+                    <!--<Font name = "Century Gothic Bold" size = "12"/>-->
+                <!--</font>-->
+            <!--</Label>-->
+            <!--<Label fx:id = "recipe" text = "" alignment="CENTER" wrapText="true"/>-->
+
+        </ListView>
+    </left>
+
+
+
+
+
+
+    <center>
+        <VBox BorderPane.alignment="CENTER">
+            <HBox spacing = "10" alignment="CENTER" BorderPane.alignment="CENTER">
+
+                <Button text = "Edit Recipe" fx:id = "editRecipe" onAction="#editRecipeDialog" disable="true">
+                    <tooltip>
+                <Tooltip text = "Edit this recipe."/>
+                     </tooltip>
+                </Button>
+
+                <Button text = "Delete Recipe" fx:id = "deleteRecipe"  onAction="#deleteItem"
+                        onKeyPressed="#handleKeyPressed" disable = "true">
+                    <tooltip>
+                        <Tooltip text = "Delete this recipe."/>
+                    </tooltip>
+                </Button>
+
+                <ToggleButton text = "Show All Recipes" fx:id ="showAllToggle" onAction="#showAllRecipesToggle"/>
+            </HBox>
+            <HBox>
+                    <Label fx:id = "recipeName" textFill = "lightslategrey" alignment="CENTER" prefWidth="400">
+                    <font>
+                        <Font name = "Century Gothic Bold" size = "36"/>
+                    </font>
+                </Label>
+                <Label text = "Total Time: " fx:id = "recipeTime" textFill = "black" alignment="CENTER">
+                    <font>
+                        <Font name = "Century Gothic Bold" size = "30"/>
+                    </font>
+                </Label>
+            </HBox>
+            <TextArea wrapText="true" fx:id = "ingredientsText" prefHeight="100">
+                <font>
+                    <Font name = "Times New Roman Bold" size = "20"/>
+                </font>
+            </TextArea>
+            <TextArea wrapText="true" fx:id = "mainTextArea">
+                <font>
+                    <Font name = "Times New Roman Bold" size = "20"/>
+                </font>
+            </TextArea>
+        </VBox>
+
+
+    </center>
+
+
+
+
+
+    <bottom>
+        <HBox spacing = "15" alignment="CENTER">
+            <padding>
+                <Insets top = "10" left = "20" right = "20" bottom = "20"/>
+            </padding>
+            <Button text = "Add New Recipe" fx:id = "RecipeButton" onAction = "#AddNewRecipeDialog">
+                <graphic>
+                    <ImageView>
+                        <image>
+                            <Image url="/images/Image1_small.png" requestedWidth="30" requestedHeight="30"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button text = "Print Shopping List" fx:id = "PrintListButton" disable = "true"/>
+            <Button text = "Add new ingredients to cupboard" fx:id = "AddCupboardButton" disable = "true"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

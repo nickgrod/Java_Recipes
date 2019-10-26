@@ -1,0 +1,3 @@
+Chicken Pot Pie	this is	12	images/chickenpotpie.jpg
+All American Kraft Macaroni and Cheese	Open the box, pour in the noodles, dump in cheese pouch. Gross.	10	file:
+Chicken Fried Rice	Make the rice, add the chicken	40	file:

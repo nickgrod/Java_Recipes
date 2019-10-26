@@ -1,0 +1,39 @@
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<DialogPane fx:controller="sample.DialogController"
+            xmlns:fx="http://javafx.com/fxml" style = "-fx-background-color: white" fx:id = "dialogPane">
+    <headerText>
+        This is an example of text
+    </headerText>
+    <content>
+        <GridPane vgap = "10" hgap="10">
+            <Label text = "Recipe name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id = "newRecipeName1" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Label text = "Total Time (Minutes)" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <TextField fx:id = "newRecipeTime" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+            <Label text = "Ingredients" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id = "newRecipeIngredient" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Label text = "Recipe Instructions" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextArea wrapText="true" fx:id = "newRecipeInstructions1" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan = "3"/>
+            <Button text = "Upload a photo" GridPane.rowIndex="6" GridPane.columnIndex="0" fx:id = "addAnImage"
+            onAction="#chooseImage"/>
+            <TextField text = "" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.columnSpan="2" fx:id = "imageName"/>
+            <Label GridPane.columnIndex="3" GridPane.rowIndex="2">
+                <graphic>
+                    <ImageView  fx:id = "addImage" fitHeight="150" fitWidth="200">
+                        <image>
+                            <Image url = "/images/foodimage.jpg"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Label>
+
+        </GridPane>
+    </content>
+</DialogPane>
